@@ -7,7 +7,7 @@
 # Pull base image.
 FROM dockerfile/java:oracle-java8
 
-ENV ES_PKG_NAME elasticsearch-1.5.0
+ENV ES_PKG_NAME elasticsearch-1.5.2
 
 # Install Elasticsearch.
 RUN \
@@ -15,7 +15,9 @@ RUN \
   wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
   tar xvzf $ES_PKG_NAME.tar.gz && \
   rm -f $ES_PKG_NAME.tar.gz && \
-  mv /$ES_PKG_NAME /elasticsearch
+  mv /$ES_PKG_NAME /elasticsearch && \
+  /elasticsearch/bin/plugin install elasticsearch/elasticsearch-mapper-attachments/2.5.0 && \
+  /elasticsearch/bin/plugin install elasticsearch/elasticsearch-analysis-icu/2.5.0
 
 # Define mountable directories.
 VOLUME ["/data"]
