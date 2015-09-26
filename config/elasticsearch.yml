@@ -1,3 +1,4 @@
+cluster.name: elasticsearch_adobre152
 path:
   data: /data/data
   logs: /data/log
