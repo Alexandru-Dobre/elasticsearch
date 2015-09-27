@@ -20,13 +20,11 @@ RUN \
   /elasticsearch/bin/plugin install elasticsearch/elasticsearch-analysis-icu/2.5.0
 
 # Define mountable directories.
-VOLUME ["/data"]
+VOLUME ["/elasticsearch/data"]
 
 # Mount elasticsearch.yml config
 ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
-# Define working directory.
-WORKDIR /data
 
 # Define default command.
 CMD ["/elasticsearch/bin/elasticsearch"]
