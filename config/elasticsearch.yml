@@ -2,5 +2,3 @@ cluster.name: elasticsearch_adobre152
 path:
   data: /data/data
   logs: /data/log
-  plugins: /data/plugins
-  work: /data/work
